@@ -5,4 +5,5 @@ class Recipe {
   String ingredents;
 
   Recipe(this.title,this.imageUrl,this.cost,this.ingredents);
+
 }
