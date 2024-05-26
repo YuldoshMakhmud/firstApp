@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'datails_page.dart';
 import 'model/recipe.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
     Recipe('Sushi', 'assets/images/sushi.avuf', '30000 won', 'fish ,rice, kim,'),
 
   ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,31 +28,41 @@ class HomePage extends StatelessWidget {
           myCard(list[1]),
           myCard(list[2]),
           myCard(list[3]),
+          myCard(list[3]),
         ],
       ),
     );
   }
 
-  Widget myCard(Recipe recipe){
-    return Card(
-      margin: EdgeInsets.all(18),
-      elevation: 24,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-              color: Colors.orange,
-              margin: EdgeInsets.all(10),
-              child: Image.asset(recipe.imageUrl)),
-           Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Text(
-              recipe.title + '\n' + recipe.cost,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
+  Widget myCard( Recipe recipe){
+    return InkWell(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DetailsPage()
           ),
-         Text(recipe.ingredents),
-        ],
+        );
+      },
+      child: Card(
+        margin: EdgeInsets.all(18),
+        elevation: 24,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+                color: Colors.orange,
+                margin: EdgeInsets.all(10),
+                child: Image.asset(recipe.imageUrl)),
+             Padding(
+              padding: const EdgeInsets.all(9.0),
+              child: Text(
+                recipe.title + '\n' + recipe.cost,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+           Text(recipe.ingredents),
+          ],
+        ),
       ),
     );
   }
