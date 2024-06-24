@@ -37,21 +37,16 @@ class HomePage extends StatelessWidget {
   Widget myCard( Recipe recipe){
     return InkWell(
       onTap: (){
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DetailsPage()
-          ),
-        );
       },
       child: Card(
-        margin: EdgeInsets.all(18),
+        margin: const EdgeInsets.all(18),
         elevation: 24,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
                 color: Colors.orange,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Image.asset(recipe.imageUrl)),
              Padding(
               padding: const EdgeInsets.all(9.0),
